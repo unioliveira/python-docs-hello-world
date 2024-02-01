@@ -26,12 +26,6 @@ steps:
       pip install pytest pytest-azurepipelines
       pytest
     displayName: 'pytest'
-
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '$(python.version)'
-  - script: pip install -r requirements.txt
-    displayName: 'Install requirements'
   - script: python3 hello2.py
 
   - task: PythonScript@0
