@@ -19,11 +19,7 @@ steps:
   - script: pip install -r requirements.txt
     displayName: 'Install requirements'
   - script: python3 hello2.py
-  - task: PublishTestResults@2
-    condition: succeededOrFailed()
-    inputs:
-      testResultsFiles: '**/test-*.xml'
-      testRunTitle: 'Publish test results for Python $(python.version)'
+
   - task: PythonScript@0
     inputs:
       scriptSource: inline
@@ -36,4 +32,4 @@ steps:
         parser.add_argument("--world", help="Provide the name of the world to greet.")
         args = parser.parse_args()
         print ('Hello ', args.world)
-      arguments: --world Venus
+      arguments: --world Terra
