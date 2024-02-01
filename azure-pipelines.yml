@@ -19,3 +19,8 @@ steps:
   - script: pip install -r requirements.txt
     displayName: 'Install requirements'
   - script: python3 hello2.py
+  - task: PublishTestResults@2
+    condition: succeededOrFailed()
+    inputs:
+      testResultsFiles: '**/test-*.xml'
+      testRunTitle: 'Publish test results for Python $(python.version)'
