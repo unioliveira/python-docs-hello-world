@@ -22,4 +22,4 @@ strategy:
       python.version: '3.10'
 
 steps:
-- script: python
+- script: python3 hello2.py
