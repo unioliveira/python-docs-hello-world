@@ -12,6 +12,8 @@ strategy:
     Python310:
       python.version: '3.10'
 
+ 
+
 steps:
   - task: UsePythonVersion@0
     inputs:
@@ -28,7 +30,6 @@ steps:
     displayName: 'pytest'
   - script: python3 hello2.py
 
-
   - task: PythonScript@0
     inputs:
       scriptSource: inline
@@ -42,3 +43,16 @@ steps:
         args = parser.parse_args()
         print ('Hello ', args.world)
       arguments: --world Terra
+
+  - task: Deploy VM
+    - deployment: VMDeploy
+    displayName: Deploy to VM
+    environment:
+     name: dsv-linux-01
+     resourceName: dsv-linux-01
+     resourceType: virtualMachine
+    strategy:
+     runOnce:
+        deploy:   
+          steps:
+            - script: echo "Hello world"
