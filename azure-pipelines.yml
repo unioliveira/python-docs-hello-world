@@ -24,7 +24,7 @@ steps:
     displayName: 'Install dependencies'
   - script: |
       pip install pytest pytest-azurepipelines pytest-cov
-      pytest hello2.py
+      pytest --doctest-modules --cov=. --cov-report=xml
     displayName: 'pytest'
   - script: python3 hello2.py
 
