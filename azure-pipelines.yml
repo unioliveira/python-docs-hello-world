@@ -12,47 +12,12 @@ strategy:
     Python310:
       python.version: '3.10'
 
- 
-
-steps:
-  - task: UsePythonVersion@0
-    inputs:
-      versionSpec: '$(python.version)'
-    displayName: 'Use Python $(python.version)'
-
-  - script: |
-      python -m pip install --upgrade pip
-      pip install -r requirements.txt
-    displayName: 'Install dependencies'
-  - script: |
-      pip install pytest pytest-azurepipelines pytest-cov
-      pytest --doctest-modules --cov=. --cov-report=xml
-    displayName: 'pytest'
-  - script: python3 hello2.py
-
-  - task: PythonScript@0
-    inputs:
-      scriptSource: inline
-      script: |
-        import sys
-        print ('Executing script file is:', str(sys.argv[0]))
-        print ('The arguments are:', str(sys.argv))
-        import argparse
-        parser = argparse.ArgumentParser()
-        parser.add_argument("--world", help="Provide the name of the world to greet.")
-        args = parser.parse_args()
-        print ('Hello ', args.world)
-      arguments: --world Terra
-
-  - task: Deploy VM
-    - deployment: VMDeploy
-    displayName: Deploy to VM
-    environment:
-     name: dsv-linux-01
-     resourceName: dsv-linux-01
-     resourceType: virtualMachine
-    strategy:
-     runOnce:
-        deploy:   
-          steps:
-            - script: echo "Hello world"
+jobs:
+- deployment: VMDeploy
+  displayName: Deploy to VM
+  environment: env-demopipeline
+  strategy:
+   runOnce:
+     deploy:
+       steps:
+         - script: echo "Hello World"
