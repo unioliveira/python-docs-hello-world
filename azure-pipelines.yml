@@ -8,6 +8,22 @@ trigger:
 
 pool: demopipeline
 
+steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+    displayName: 'Use Python $(python.version)'
+
+  - script: |
+      python -m pip install --upgrade pip
+      pip install -r requirements.txt
+    displayName: 'Install dependencies'
+  - script: |
+      pip install pytest pytest-azurepipelines pytest-cov
+      pytest --doctest-modules --cov=. --cov-report=xml
+    displayName: 'pytest'
+  - script: python3 hello2.py
+  
 jobs:
 - deployment: VMDeploy
   displayName: Deploy to VM
