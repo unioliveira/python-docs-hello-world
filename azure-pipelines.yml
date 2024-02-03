@@ -43,15 +43,15 @@ jobs:
             inputs:
               versionSpec: '3.x'
             displayName: 'Use Python 3.x'
-          - script: |
-              python -m pip install --upgrade pip
-              pip install -r requirements.txt
-            displayName: 'Install dependencies'
+        #  - script: |
+        #      python -m pip install --upgrade pip
+        #      pip install -r requirements.txt
+        #    displayName: 'Install dependencies'
           - script: |
               pip install pytest pytest-azurepipelines pytest-cov
               pytest --doctest-modules --cov=. --cov-report=xml
             displayName: 'pytest'
-          - script: python3 hello2.py
+          #- script: python3 hello2.py
           - task: PythonScript@0
             inputs:
               scriptSource: inline
