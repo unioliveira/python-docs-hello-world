@@ -6,6 +6,7 @@
 trigger:
 - master
 
+
 pool: demopipeline
 
 jobs:  
@@ -19,7 +20,7 @@ jobs:
   strategy:  
    runOnce:
      deploy:
-        steps:
+        steps:          
           - task: DownloadGitHubRelease@0
             displayName: 'Download Release'
             inputs:
