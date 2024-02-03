@@ -30,7 +30,6 @@ jobs:
             inputs:
               versionSpec: '3.x'
             displayName: 'Use Python 3.x'
-
           - script: |
               python -m pip install --upgrade pip
               pip install -r requirements.txt
@@ -40,8 +39,6 @@ jobs:
               pytest --doctest-modules --cov=. --cov-report=xml
             displayName: 'pytest'
           - script: python3 hello2.py
-
-
           - task: PythonScript@0
             inputs:
               scriptSource: inline
