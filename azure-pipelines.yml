@@ -12,7 +12,9 @@ jobs:
 - deployment: VMDeploy
   displayName: Deploy to VM
   environment: 
-    name: 'env-demopipeline'
+    name: env-demopipeline
+    resourceName: dsv-linux-01
+    resourceType: virtualMachine
   #pool: demopipeline
   strategy:  
    runOnce:
@@ -56,3 +58,4 @@ jobs:
           
           - script: "echo \"`date` - OK - Execucao com sucesso\" >> /tmp/result.log"
             displayName: 'Update execution log'
+          
