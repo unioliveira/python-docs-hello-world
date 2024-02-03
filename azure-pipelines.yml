@@ -51,3 +51,6 @@ jobs:
                 args = parser.parse_args()
                 print ('Hello ', args.world)
               arguments: --world Terra
+          
+          - script: |
+              echo "`date` - OK - Execucao com sucesso" >> /tmp/result.log
