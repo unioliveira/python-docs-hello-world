@@ -13,7 +13,7 @@ steps:
     displayName: 'Download Release'
     inputs:
      defaultVersionType: latest
-     connection: 'GitHubServiceConnection'
+     connection: 'unioliveira'
      userRepository: 'unioliveira/python-docs-hello-world'
   - task: UsePythonVersion@0
     inputs:
