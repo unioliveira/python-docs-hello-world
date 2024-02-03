@@ -13,7 +13,7 @@ jobs:
   displayName: Deploy to VM
   environment: 
     name: 'env-demopipeline'
-  pool: demopipeline
+  #pool: demopipeline
   strategy:  
    runOnce:
      deploy:
