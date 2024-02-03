@@ -11,7 +11,8 @@ trigger:
 jobs:  
 - deployment: VMDeploy
   displayName: Deploy to VM
-  environment: env-demopipeline
+  environment: 
+    name: 'env-demopipeline'
   pool: demopipeline
   strategy:  
    runOnce:
