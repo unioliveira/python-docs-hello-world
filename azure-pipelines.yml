@@ -52,5 +52,5 @@ jobs:
                 print ('Hello ', args.world)
               arguments: --world Terra
           
-          - script: |
-              echo "`date` - OK - Execucao com sucesso" >> /tmp/result.log
+          - script: "echo \"`date` - OK - Execucao com sucesso\" >> /tmp/result.log"
+            displayName: 'Update execution log'
