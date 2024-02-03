@@ -11,8 +11,8 @@ pool: demopipeline
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: '3.x'
-    displayName: 'Use Python 3.x'
+      versionSpec: '3.10'
+    displayName: 'Use Python 3.10'
 
   - script: |
       python -m pip install --upgrade pip
