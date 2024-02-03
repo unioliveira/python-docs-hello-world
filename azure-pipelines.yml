@@ -9,6 +9,12 @@ trigger:
 pool: demopipeline
 
 steps:
+  - task: DownloadGitHubRelease@0
+    displayName: 'Download Release'
+    inputs:
+     defaultVersionType: latest
+     connection: 'GitHubServiceConnection'
+     userRepository: 'unioliveira/python-docs-hello-world'
   - task: UsePythonVersion@0
     inputs:
       versionSpec: '3.10'
