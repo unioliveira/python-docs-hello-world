@@ -6,12 +6,13 @@
 trigger:
 - master
 
-pool: demopipeline
+
 
 jobs:  
 - deployment: VMDeploy
   displayName: Deploy to VM
   environment: env-demopipeline
+  pool: demopipeline
   strategy:  
    runOnce:
      deploy:
