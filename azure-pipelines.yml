@@ -25,9 +25,7 @@ jobs:
             inputs:
               connection: 'unioliveira'
               userRepository: 'unioliveira/python-docs-hello-world'
-              defaultVersionType: 'specificVersion'
-              version: '139596074'
-              downloadPath: '$(System.ArtifactsDirectory)'
+              defaultVersionType: 'latest'
           - task: UsePythonVersion@0
             inputs:
               versionSpec: '3.x'
