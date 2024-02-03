@@ -1,4 +1,5 @@
 # Python package
+
 # Create and test a Python package on multiple Python versions.
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -21,6 +22,15 @@ jobs:
    runOnce:
      deploy:
         steps:          
+        - task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'specific'
+    project: '872b5e40-c4d3-4422-a791-daff8935cd8d'
+    definition: '4'
+    buildVersionToDownload: 'latest'
+    allowPartiallySucceededBuilds: true
+    targetPath: '$(Pipeline.Workspace)'
+    
           - task: DownloadGitHubRelease@0
             displayName: 'Download Release'
             inputs:
