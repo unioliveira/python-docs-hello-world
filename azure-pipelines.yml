@@ -18,8 +18,8 @@ jobs:
        steps:
         - task: UsePythonVersion@0
           inputs:
-            versionSpec: '$(python.version)'
-          displayName: 'Use Python $(python.version)'
+            versionSpec: '3.x'
+          displayName: 'Use Python $(versionspec)'
         - script: |
             python -m pip install --upgrade pip
             pip install -r requirements.txt
@@ -28,4 +28,4 @@ jobs:
             pip install pytest pytest-azurepipelines pytest-cov
             pytest --doctest-modules --cov=. --cov-report=xml
           displayName: 'pytest'
-        - script: python3 hello2.py
+        - script: python hello2.py
